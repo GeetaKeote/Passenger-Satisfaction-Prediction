@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
 
 class DataIngestionconfig():
     raw_data_path:str = RAW_FILE_PATH
@@ -69,4 +70,9 @@ class DataIngestion:
 if __name__ == "__main__":
     obj=DataIngestion()
     train_data,test_data = obj.initiate_Data_ingestion()
+
+    data_transformation = DataTransformation()
+    
+    train_array, test_array, _ = data_transformation.inititate_data_transformation(train_data, test_data)
+
 # src/components/data_ingestion.py

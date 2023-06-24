@@ -1,0 +1,8 @@
+[2023-06-24 16:22:37,575] root - INFO - data ingestion started
+[2023-06-24 16:22:37,575] root - INFO - data set path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\notebook\data\airline_dataset.csv
+[2023-06-24 16:22:37,911] root - INFO - dataset columns :{df.columns} 
+[2023-06-24 16:22:39,029] root - INFO - dataset in raw data dir
+[2023-06-24 16:22:39,030] root - INFO - train test split
+[2023-06-24 16:22:40,245] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\Artifact\data_ingestion\2023-06-24 16-22-29\ingested_dir\train.csv
+[2023-06-24 16:22:40,555] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\Artifact\data_ingestion\2023-06-24 16-22-29\ingested_dir\test.csv
+[2023-06-24 16:22:40,555] root - INFO - data insgestion done 
