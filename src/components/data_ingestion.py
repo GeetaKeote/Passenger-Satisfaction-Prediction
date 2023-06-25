@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
+from src.components.model_training import ModelTrainer
 
 class DataIngestionconfig():
     raw_data_path:str = RAW_FILE_PATH
@@ -71,8 +72,10 @@ if __name__ == "__main__":
     obj=DataIngestion()
     train_data_path,test_data_path = obj.initiate_Data_ingestion()
 
-    data_transformation = DataTransformation()
-    
+    data_transformation = DataTransformation()    
     train_arr, test_arr, _ = data_transformation.inititate_data_transformation(train_data_path, test_data_path)
+
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.inititate_model_trainer(train_arr, test_arr))
 
 # src/components/data_ingestion.py

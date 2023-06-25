@@ -1,8 +1,3 @@
-# Handle Missing value
-# Outliers treatment
-#Hanle Imblanced dataset
-#Convert categorical columns into numerical columns
-
 import os, sys
 import pandas as pd
 import numpy as np
@@ -106,7 +101,7 @@ class DataTransformation:
             numerical_features = ['Age','Flight Distance','Inflight wifi service','Departure/Arrival time convenient','Ease of Online booking',
                     'Food and drink','Online boarding','Seat comfort','Inflight entertainment','On-board service','Leg room service','Baggage handling',
                     'Checkin service','Inflight service','Cleanliness']
-
+        
 
             for col in numerical_features:
                 self.remove_outliers_IQR(col = col, df = train_data)
