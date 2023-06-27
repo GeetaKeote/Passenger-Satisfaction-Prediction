@@ -15,7 +15,7 @@ DATA_DIR_KEY = "airline_dataset.csv"
 
 # artifact
 
-ARTIFACT_DIR_KEY = "Artifact"
+ARTIFACT_DIR_KEY = "artifacts"
 
  #Data Ingestion constants
 

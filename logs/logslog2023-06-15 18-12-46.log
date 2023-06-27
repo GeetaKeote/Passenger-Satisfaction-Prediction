@@ -1,3 +1,0 @@
-[2023-06-15 18:13:10,744] root - INFO - Data Ingestion started
-[2023-06-15 18:13:10,744] root - INFO - Reading Data using Pandas library from local system
-[2023-06-15 18:13:10,747] root - INFO - Error occured in data ingestion stage

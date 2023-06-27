@@ -46,7 +46,8 @@ class ModelTrainer:
                     "class_weight":["balanced"],
                     'penalty': ['l1', 'l2'],
                     'C': [0.001, 0.01, 0.1, 1, 10, 100],
-                    'solver': ['liblinear', 'saga']
+                    'solver': ['liblinear', 'saga'],
+                    'max_iter': [100, 500, 1000]
                 },
                 "DecisionTree":{
                     "class_weight":["balanced"],
@@ -56,7 +57,9 @@ class ModelTrainer:
                     "min_samples_split":[2,3,4,5],
                     "min_samples_leaf":[1,2,3],
                     "max_features":["auto","sqrt","log2"]
+                    #"max_features":["sqrt"]
                     },
+                    
                 "Gradient Booasting":{
                     "learning_rate":[ 0.1, 0.05],
                     "n_estimators":[50,100],
@@ -65,19 +68,20 @@ class ModelTrainer:
                 'XGB Classifier':{
                     'max_depth': [ 5, 7],
                     'learning_rate': [0.1, 0.01],
-                    'n_estimators': [100, 200],
-            
+                    'n_estimators': [100, 300],
+                    'colsample_bytree': [0.8], 
+                    'n_jobs':[-1],
                     'reg_alpha': [ 0.1, 0.5],
                     'reg_lambda': [ 1, 10]
                 },
                 "KNN neighbour":{
-                    'n_neighbors': [3, 5, 7],
+                    'n_neighbors': [2, 5, 7],
                         'weights': ['uniform', 'distance'],
                 },
                 "Random Forest":{
-                    'n_estimators': [20,  30,50,100],
+                    'n_estimators': [500,  30,50,100],
                     'max_depth': [10, 8, 5,None],
-                    'min_samples_split': [2, 5, 10],
+                    'min_samples_split': [2, 5, 8],
                     'criterion':["gini"]
                 }
             }
@@ -87,9 +91,12 @@ class ModelTrainer:
             # to get the best Model from Report
             best_model_score=max(sorted(model_report.values()))
             best_model_name=list(model.keys())[
-                list(model_report.values()).index(best_model_score)
+               list(model_report.values()).index(best_model_score)
             ]
             best_model=model[best_model_name]
+          
+            
+       
 
             print(f"Best Model Found,Model is:{best_model_name},Accuracy_Score:{best_model_score}")
             print("\n------------------------------------------------------------------------------")

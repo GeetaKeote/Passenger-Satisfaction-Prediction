@@ -56,7 +56,7 @@ class DataIngestion:
             logging.info(f"train data path : {TEST_FILE_PATH}")
 
 
-            logging.info(f"data insgestion done " )
+            logging.info(f"data ingestion done " )
 
             return(
                 self.data_ingestion_config.train_data_path,
