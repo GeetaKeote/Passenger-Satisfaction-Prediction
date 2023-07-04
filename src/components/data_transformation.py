@@ -20,6 +20,14 @@ class DataTransformation:
     def __init__(self):
         self.data_transformation_config = DataTransfromartionConfigs()
 
+    def delete_columns(self, columns_to_delete, df):
+        try:
+            df = df.drop(columns_to_delete, axis=1)
+            return df
+        except Exception as e:
+            logging.info("Error occurred while deleting columns")
+            raise CustomException(e, sys)
+    
     def remove_outliers_IQR(self, col, df):
         try:
             Q1 = df[col].quantile(0.25)
@@ -38,20 +46,24 @@ class DataTransformation:
         except Exception as e:
             logging.info("Outliers handling code")
             raise CustomException(e, sys)
-
+        
+    
 
     def get_data_transformation_obj(self):
         try:
 
             logging.info(" Data Transformation Started")
 
-           
+            numerical_features = [ 'Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient',
+                                   'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 
+                                   'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 
+                                   'Checkin service', 'Inflight service', 'Cleanliness' ]
 
-            numerical_features =['Unnamed: 0', 'Age', 'Flight Distance', 'Inflight wifi service',
-                                  'Departure/Arrival time convenient', 'Ease of Online booking', 
-                                  'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 
-                                  'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 
-                                  'Cleanliness', 'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+            #numerical_features =['Unnamed: 0', 'Age', 'Flight Distance', 'Inflight wifi service',
+                                 # 'Departure/Arrival time convenient', 'Ease of Online booking', 
+                                #  'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 
+                                 # 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 
+                                #  'Cleanliness', 'Departure Delay in Minutes', 'Arrival Delay in Minutes']
             
             ordinal_columns = ['Class']
             onehot_columns = ['Gender', 'Customer Type', 'Type of Travel' ]           
@@ -133,6 +145,14 @@ class DataTransformation:
             train_data['satisfaction'] = train_data['satisfaction'].map(satisfaction_mapping)
             test_data['satisfaction'] = test_data['satisfaction'].map(satisfaction_mapping)
 
+            # Columns to delete
+            columns_to_delete = ['Unnamed: 0','Gate location',]
+
+            # Delete columns from train_data and test_data
+            train_data = self.delete_columns(columns_to_delete, train_data)
+            test_data = self.delete_columns(columns_to_delete, test_data)
+            
+
 
             logging.info('Read train and test data completed')
             logging.info(f'Train Dataframe Head : \n{train_data.head().to_string()}')
@@ -144,7 +164,7 @@ class DataTransformation:
             logging.info(f"Numerical columns in dataframe are: {train_data.select_dtypes(include=['int64','float64']).columns.tolist()}")
             logging.info(f"columns in dataframe are: {test_data.dtypes}")
 
-            categorical_columns = ['Gender', 'Customer Type', 'Type of Travel', 'satisfaction']
+            categorical_columns = ['Gender', 'Customer Type', 'Type of Travel', 'satisfaction','Departure Delay in Minutes', 'Arrival Delay in Minutes']
             missing_columns = []
 
             for col in categorical_columns:
@@ -153,14 +173,15 @@ class DataTransformation:
 
             if missing_columns:
                 raise ValueError(f"The following categorical columns are missing from the dataset: {missing_columns}")
+            
+            
 
             
 
-            numerical_features = ['Unnamed: 0', 'Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient',
-                                   'Ease of Online booking', 'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 
+            numerical_features = [ 'Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient',
+                                   'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 
                                    'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 
-                                   'Checkin service', 'Inflight service', 'Cleanliness', 'Departure Delay in Minutes', 
-                                   'Arrival Delay in Minutes']
+                                   'Checkin service', 'Inflight service', 'Cleanliness' ]
         
 
             for col in numerical_features:

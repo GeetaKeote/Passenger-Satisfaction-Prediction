@@ -4,15 +4,20 @@ import os, sys
 import pickle
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_recall_curve, f1_score, precision_score, recall_score
 from sklearn.model_selection import GridSearchCV
-
+from datetime import datetime
 
 
 
 def save_object(file_path, obj):
     try:
+        timestamp = datetime.now().strftime("'%Y-%m-%d %H-%M-%S'")  # Get the current timestamp
         dir_path = os.path.dirname(file_path)
 
         os.makedirs(dir_path, exist_ok= True)
+
+        filename = f"model_{timestamp}.pkl"  # Add the timestamp to the filename
+        file_path = os.path.join(dir_path, filename)  # Create the full file path with the timestamped filename
+
 
         with open(file_path, "wb") as file_obj:
             pickle.dump(obj, file_obj)

@@ -1,0 +1,55 @@
+[2023-07-03 11:59:35,084] root - INFO - data ingestion started
+[2023-07-03 11:59:35,085] root - INFO - data set path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\notebook\data\airline_dataset.csv
+[2023-07-03 11:59:35,569] root - INFO - dataset columns :{df.columns} 
+[2023-07-03 11:59:37,201] root - INFO - dataset in raw data dir
+[2023-07-03 11:59:37,202] root - INFO - train test split
+[2023-07-03 11:59:38,688] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\artifacts\data_ingestion\2023-07-03 11-59-31\ingested_dir\train.csv
+[2023-07-03 11:59:39,087] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\artifacts\data_ingestion\2023-07-03 11-59-31\ingested_dir\test.csv
+[2023-07-03 11:59:39,088] root - INFO - data ingestion done 
+[2023-07-03 11:59:39,631] root - INFO - Read train and test data completed
+[2023-07-03 11:59:39,641] root - INFO - Train Dataframe Head : 
+   Unnamed: 0  Gender      Customer Type  Age   Type of Travel     Class  Flight Distance  Inflight wifi service  Departure/Arrival time convenient  Ease of Online booking  Gate location  Food and drink  Online boarding  Seat comfort  Inflight entertainment  On-board service  Leg room service  Baggage handling  Inflight service  Cleanliness  satisfaction
+0       21413  Female     Loyal Customer   64  Personal Travel  Business              965                      3                                  5                       3              3               5                5             5                       1                 1                 3                 1                 1            5             0
+1        7284    Male  disloyal Customer   26  Business travel  Business              592                      2                                  1                       1              2               3                1             3                       3                 5                 4                 5                 4            3             0
+2       86080  Female     Loyal Customer    8  Personal Travel       Eco              993                      3                                  4                       3              1               4                3             4                       4                 4                 5                 5                 4            4             0
+3       59842    Male     Loyal Customer   41  Business travel  Business             2223                      4                                  4                       4              4               1                2             4                       5                 5                 5                 5                 5            1             1
+4       69486  Female  disloyal Customer   19  Business travel       Eco             1235                      4                                  4                       4              4               3                4             3                       3                 1                 2                 4                 4            3             0
+[2023-07-03 11:59:39,651] root - INFO - Test Dataframe Head  : 
+   Unnamed: 0  Gender   Customer Type  Age   Type of Travel     Class  Flight Distance  Inflight wifi service  Departure/Arrival time convenient  Ease of Online booking  Gate location  Food and drink  Online boarding  Seat comfort  Inflight entertainment  On-board service  Leg room service  Baggage handling  Inflight service  Cleanliness  satisfaction
+0      103044    Male  Loyal Customer   66  Personal Travel       Eco             1678                      3                                  2                       3              2               4                3             4                       4                 4                 3                 2                 2            4             0
+1       43282  Female  Loyal Customer   38  Business travel  Business              954                      2                                  2                       2              2               2                3             1                       4                 4                 4                 4                 4            4             1
+2       65543  Female  Loyal Customer   38  Business travel       Eco              189                      2                                  1                       1              1               2                2             2                       2                 1                 2                 4                 4            2             0
+3       65083  Female  Loyal Customer   32  Personal Travel       Eco              175                      2                                  5                       2              1               1                2             1                       1                 3                 5                 4                 4            1             0
+4       76496    Male  Loyal Customer   33  Business travel  Business             1990                      5                                  5                       5              5               4                4             4                       4                 4                 1                 5                 1            4             1
+[2023-07-03 11:59:39,651] root - INFO - columns in dataframe are: Index(['Unnamed: 0', 'Gender', 'Customer Type', 'Age', 'Type of Travel',
+       'Class', 'Flight Distance', 'Inflight wifi service',
+       'Departure/Arrival time convenient', 'Ease of Online booking',
+       'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort',
+       'Inflight entertainment', 'On-board service', 'Leg room service',
+       'Baggage handling', 'Inflight service', 'Cleanliness', 'satisfaction'],
+      dtype='object')
+[2023-07-03 11:59:39,660] root - INFO - Catogorical columns in dataframe are: ['Gender', 'Customer Type', 'Type of Travel', 'Class']
+[2023-07-03 11:59:39,686] root - INFO - Numerical columns in dataframe are: ['Unnamed: 0', 'Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient', 'Ease of Online booking', 'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 'Inflight service', 'Cleanliness', 'satisfaction']
+[2023-07-03 11:59:39,689] root - INFO - columns in dataframe are: Unnamed: 0                            int64
+Gender                               object
+Customer Type                        object
+Age                                   int64
+Type of Travel                       object
+Class                                object
+Flight Distance                       int64
+Inflight wifi service                 int64
+Departure/Arrival time convenient     int64
+Ease of Online booking                int64
+Gate location                         int64
+Food and drink                        int64
+Online boarding                       int64
+Seat comfort                          int64
+Inflight entertainment                int64
+On-board service                      int64
+Leg room service                      int64
+Baggage handling                      int64
+Inflight service                      int64
+Cleanliness                           int64
+satisfaction                          int64
+dtype: object
+[2023-07-03 11:59:39,988] root - INFO - Outliers handling code

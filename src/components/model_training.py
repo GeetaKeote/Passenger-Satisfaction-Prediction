@@ -87,16 +87,29 @@ class ModelTrainer:
             }
 
             model_report:dict=evaluate_model(X_train =X_train ,X_test=X_test,y_train=y_train,y_test=y_test,
-                                            models=model,params=params)
+                                           models=model,params=params)
             # to get the best Model from Report
             best_model_score=max(sorted(model_report.values()))
             best_model_name=list(model.keys())[
                list(model_report.values()).index(best_model_score)
             ]
             best_model=model[best_model_name]
+            #best_model_name = None
+            #best_model_score = 0.0
+
+            #for model_name, model in model.items():
+               #param_grid = params[model_name]
+
+                #grid_search = GridSearchCV(model, param_grid, cv=5, scoring='accuracy')
+                #grid_search.fit(X_train, y_train)
+
+                # Get the best model from GridSearchCV
+                #if grid_search.best_score_ > best_model_score:
+                  #  best_model = grid_search.best_estimator_
+                   # best_model_score = grid_search.best_score_
+
           
-            
-       
+                  
 
             print(f"Best Model Found,Model is:{best_model_name},Accuracy_Score:{best_model_score}")
             print("\n------------------------------------------------------------------------------")
