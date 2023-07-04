@@ -146,7 +146,7 @@ class DataTransformation:
             test_data['satisfaction'] = test_data['satisfaction'].map(satisfaction_mapping)
 
             # Columns to delete
-            columns_to_delete = ['Unnamed: 0','Gate location',]
+            columns_to_delete = ['Unnamed: 0','Gate location','Departure Delay in Minutes', 'Arrival Delay in Minutes']
 
             # Delete columns from train_data and test_data
             train_data = self.delete_columns(columns_to_delete, train_data)
