@@ -11,7 +11,7 @@ class PredictionPipeline:
         pass
 
     def predict(self, features):
-        preprocessro_path = os.path.join("artifacts/data_transformation", "preprocessor.pkl")
+        preprocessro_path = os.path.join("artifacts/data_transformation", "preprcessor.pkl")
         model_path = os.path.join("artifacts/model_trainer", "model.pkl")
 
         processor = load_object(preprocessro_path)
@@ -71,27 +71,26 @@ class CustomClass:
     def get_data_DataFrame(self):
         try:
             custom_input = {
-                "Age": [self.Age],
-                "Flight_Distance": [self.Flight_Distance],
-                "Inflight_wifi_service":[self.Inflight_wifi_service],
-                "Departure_Arrival_time_convenient":[self.Departure_Arrival_time_convenient],
-                "Ease_of_Online_booking":[self.Ease_of_Online_booking],                
-                "Food_and_drink":[self.Food_and_drink],
-                "Online_boarding":[self.Online_boarding],
-                "Seat_comfort":[self.Seat_comfort],
-                "Inflight_entertainment":[self.Inflight_entertainment],
-                "On_board_service":[self.On_board_service],
-                "Leg_room_service":[self.Leg_room_service],
-                "Baggage_handling":[self.Baggage_handling],
-                "Checkin_service":[self.Checkin_service],
-                "Inflight_service":[self.Inflight_service],
-                "Cleanliness":[self.Cleanliness],
-                "Departure_Delay_in_Minutes":[self.Departure_Delay_in_Minutes],
-                "Gender":[self.Gender],
-                "Customer_Type":[self.Customer_Type],
-                "Type_of_Travel":[self.Type_of_Travel],
-                "Class":[self.Class],
-                "Arrival_Delay_in_Minutes":[self.Arrival_Delay_in_Minutes]
+                'Age': [self.Age],
+                'Flight Distance': [self.Flight_Distance],
+                'Inflight wifi service':[self.Inflight_wifi_service],
+                'Departure/Arrival time convenient':[self.Departure_Arrival_time_convenient],
+                'Ease of Online booking':[self.Ease_of_Online_booking],                
+                'Food and drink':[self.Food_and_drink],
+                'Online boarding':[self.Online_boarding],
+                'Seat comfort':[self.Seat_comfort],
+                'Inflight entertainment':[self.Inflight_entertainment],
+                'On-board service':[self.On_board_service],
+                'Leg room service':[self.Leg_room_service],
+                'Baggage handling':[self.Baggage_handling],
+                'Checkin service':[self.Checkin_service],
+                'Inflight service':[self.Inflight_service],
+                'Cleanliness':[self.Cleanliness],                
+                'Gender':[self.Gender],
+                'Customer Type':[self.Customer_Type],
+                'Type of Travel':[self.Type_of_Travel],
+                "Class":[self.Class]
+                
 
 
             }

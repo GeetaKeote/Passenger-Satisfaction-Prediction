@@ -1,0 +1,11 @@
+[2023-07-04 23:25:40,008] root - INFO - converting data into Dataframe
+[2023-07-04 23:25:41,232] werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2023-07-04 23:25:41,232] werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2023-07-04 23:25:41,236] werkzeug - INFO -  * Restarting with stat
+[2023-07-04 23:31:11,408] werkzeug - INFO -  * Restarting with stat
+[2023-07-04 23:31:38,021] werkzeug - INFO -  * Restarting with stat
+[2023-07-04 23:33:12,793] werkzeug - INFO -  * Restarting with stat
+[2023-07-04 23:33:17,126] werkzeug - INFO -  * Restarting with stat

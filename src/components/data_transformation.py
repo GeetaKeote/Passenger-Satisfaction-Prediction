@@ -59,11 +59,7 @@ class DataTransformation:
                                    'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 
                                    'Checkin service', 'Inflight service', 'Cleanliness' ]
 
-            #numerical_features =['Unnamed: 0', 'Age', 'Flight Distance', 'Inflight wifi service',
-                                 # 'Departure/Arrival time convenient', 'Ease of Online booking', 
-                                #  'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 
-                                 # 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 
-                                #  'Cleanliness', 'Departure Delay in Minutes', 'Arrival Delay in Minutes']
+            
             
             ordinal_columns = ['Class']
             onehot_columns = ['Gender', 'Customer Type', 'Type of Travel' ]           
@@ -90,14 +86,14 @@ class DataTransformation:
 
             onehot_pipeline= Pipeline(steps=[
                 ('imputer', SimpleImputer(strategy='most_frequent')),
-                ('oridnal_encoder', OrdinalEncoder()),
+                ('oridnal_encoder', OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)),
                 ('scaler', StandardScaler(with_mean=False))
             ])
 
 
             ordinal_pipeline = Pipeline(steps=[
                 ('imputer', SimpleImputer(strategy='most_frequent')),
-                ('one_hot_encoder', OneHotEncoder()),
+                ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore')),
                 ('scaler', StandardScaler(with_mean=False))
             ])
             #label_encoder_pipeline = Pipeline(steps=[
@@ -137,6 +133,9 @@ class DataTransformation:
             train_data.columns = train_data.columns.str.strip()
             test_data.columns = test_data.columns.str.strip()
 
+            train_data = train_data.dropna()
+            test_data = test_data.dropna()
+
             # Map values for the 'satisfaction' column
             satisfaction_mapping = {
                 'satisfied': 1,
@@ -152,6 +151,7 @@ class DataTransformation:
             train_data = self.delete_columns(columns_to_delete, train_data)
             test_data = self.delete_columns(columns_to_delete, test_data)
             
+            
 
 
             logging.info('Read train and test data completed')
@@ -164,7 +164,7 @@ class DataTransformation:
             logging.info(f"Numerical columns in dataframe are: {train_data.select_dtypes(include=['int64','float64']).columns.tolist()}")
             logging.info(f"columns in dataframe are: {test_data.dtypes}")
 
-            categorical_columns = ['Gender', 'Customer Type', 'Type of Travel', 'satisfaction','Departure Delay in Minutes', 'Arrival Delay in Minutes']
+            categorical_columns = ['Gender', 'Customer Type', 'Type of Travel', 'satisfaction']
             missing_columns = []
 
             for col in categorical_columns:

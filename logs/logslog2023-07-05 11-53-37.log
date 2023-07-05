@@ -1,0 +1,3 @@
+[2023-07-05 11:53:38,827] root - INFO - converting data into Dataframe
+[2023-07-05 11:53:38,845] werkzeug - WARNING -  * Debugger is active!
+[2023-07-05 11:53:38,851] werkzeug - INFO -  * Debugger PIN: 465-330-203

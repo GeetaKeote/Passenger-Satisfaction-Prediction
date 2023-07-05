@@ -1,0 +1,14 @@
+[2023-07-04 23:41:09,649] root - INFO - converting data into Dataframe
+[2023-07-04 23:41:09,664] werkzeug - WARNING -  * Debugger is active!
+[2023-07-04 23:41:09,666] werkzeug - INFO -  * Debugger PIN: 774-533-357
+[2023-07-04 23:41:14,491] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:14] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+[2023-07-04 23:41:15,022] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:15] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:15,156] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:15] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:15,481] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:15] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:15,746] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:15] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:21,405] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:21] "GET / HTTP/1.1" 200 -
+[2023-07-04 23:41:43,099] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:43] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+[2023-07-04 23:41:43,372] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:43] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:43,432] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:43] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:43,791] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:43] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-04 23:41:44,058] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 23:41:44] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

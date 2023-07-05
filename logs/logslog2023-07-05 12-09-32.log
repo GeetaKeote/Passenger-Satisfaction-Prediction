@@ -1,0 +1,4 @@
+[2023-07-05 12:09:33,508] root - INFO - converting data into Dataframe
+[2023-07-05 12:09:33,559] werkzeug - WARNING -  * Debugger is active!
+[2023-07-05 12:09:33,579] werkzeug - INFO -  * Debugger PIN: 465-330-203
+[2023-07-05 12:09:39,772] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 12:09:39] "POST / HTTP/1.1" 200 -
