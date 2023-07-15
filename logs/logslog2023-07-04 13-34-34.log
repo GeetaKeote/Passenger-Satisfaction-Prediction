@@ -1,9 +1,0 @@
-[2023-07-04 13:34:37,615] root - INFO - converting data into Dataframe
-[2023-07-04 13:34:37,631] werkzeug - WARNING -  * Debugger is active!
-[2023-07-04 13:34:37,638] werkzeug - INFO -  * Debugger PIN: 130-388-941
-[2023-07-04 13:34:38,411] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:34:38] "GET / HTTP/1.1" 200 -
-[2023-07-04 13:35:03,499] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:35:03] "[35m[1mPOST / HTTP/1.1[0m" 500 -
-[2023-07-04 13:35:04,915] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:35:04] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
-[2023-07-04 13:35:04,932] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:35:04] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
-[2023-07-04 13:35:05,297] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:35:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-[2023-07-04 13:35:05,540] werkzeug - INFO - 127.0.0.1 - - [04/Jul/2023 13:35:05] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

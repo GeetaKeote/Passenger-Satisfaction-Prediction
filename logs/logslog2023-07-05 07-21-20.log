@@ -1,4 +1,0 @@
-[2023-07-05 07:21:21,699] root - INFO - converting data into Dataframe
-[2023-07-05 07:21:21,710] werkzeug - WARNING -  * Debugger is active!
-[2023-07-05 07:21:21,713] werkzeug - INFO -  * Debugger PIN: 774-533-357
-[2023-07-05 07:21:24,079] werkzeug - INFO -  * Detected change in 'a:\\projects machine learning\\internship sa\\airline\\passenger-satisfaction-prediction\\src\\pipeline\\prediction_pipeline.py', reloading

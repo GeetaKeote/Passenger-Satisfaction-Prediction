@@ -1,4 +1,0 @@
-[2023-07-05 07:43:59,022] root - INFO - converting data into Dataframe
-[2023-07-05 07:43:59,031] werkzeug - WARNING -  * Debugger is active!
-[2023-07-05 07:43:59,034] werkzeug - INFO -  * Debugger PIN: 774-533-357
-[2023-07-05 07:44:00,360] werkzeug - INFO -  * Detected change in 'A:\\Projects Machine Learning\\Internship SA\\Airline\\Passenger-Satisfaction-Prediction\\src\\components\\data_transformation.py', reloading

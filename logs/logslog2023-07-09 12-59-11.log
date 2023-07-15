@@ -1,0 +1,197 @@
+[2023-07-09 12:59:17,199] root - INFO - converting data into Dataframe
+[2023-07-09 12:59:18,358] root - INFO - data ingestion started
+[2023-07-09 12:59:18,359] root - INFO - data set path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\notebook\data\airline_dataset.csv
+[2023-07-09 12:59:18,696] root - INFO - dataset columns :{df.columns} 
+[2023-07-09 12:59:20,328] root - INFO - dataset in raw data dir
+[2023-07-09 12:59:20,328] root - INFO - train test split
+[2023-07-09 12:59:21,843] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\artifacts\data_ingestion\2023-07-09 12-59-17\ingested_dir\train.csv
+[2023-07-09 12:59:22,262] root - INFO - train data path : A:\Projects Machine Learning\Internship SA\Airline\Passenger-Satisfaction-Prediction\artifacts\data_ingestion\2023-07-09 12-59-17\ingested_dir\test.csv
+[2023-07-09 12:59:22,262] root - INFO - data ingestion done 
+[2023-07-09 12:59:23,324] root - INFO - Read train and test data completed
+[2023-07-09 12:59:23,331] root - INFO - Train Dataframe Head : 
+   Gender      Customer Type  Age   Type of Travel     Class  Flight Distance  Inflight wifi service  Departure/Arrival time convenient  Ease of Online booking  Food and drink  Online boarding  Seat comfort  Inflight entertainment  On-board service  Leg room service  Baggage handling  Checkin service  Inflight service  Cleanliness  satisfaction
+0  Female     Loyal Customer   64  Personal Travel  Business              965                      3                                  5                       3               5                5             5                       1                 1                 3                 1                5                 1            5             0
+1    Male  disloyal Customer   26  Business travel  Business              592                      2                                  1                       1               3                1             3                       3                 5                 4                 5                4                 4            3             0
+2  Female     Loyal Customer    8  Personal Travel       Eco              993                      3                                  4                       3               4                3             4                       4                 4                 5                 5                4                 4            4             0
+3    Male     Loyal Customer   41  Business travel  Business             2223                      4                                  4                       4               1                2             4                       5                 5                 5                 5                5                 5            1             1
+4  Female  disloyal Customer   19  Business travel       Eco             1235                      4                                  4                       4               3                4             3                       3                 1                 2                 4                1                 4            3             0
+[2023-07-09 12:59:23,335] root - INFO - Test Dataframe Head  : 
+   Gender   Customer Type  Age   Type of Travel     Class  Flight Distance  Inflight wifi service  Departure/Arrival time convenient  Ease of Online booking  Food and drink  Online boarding  Seat comfort  Inflight entertainment  On-board service  Leg room service  Baggage handling  Checkin service  Inflight service  Cleanliness  satisfaction
+0    Male  Loyal Customer   66  Personal Travel       Eco             1678                      3                                  2                       3               4                3             4                       4                 4                 3                 2                3                 2            4             0
+1  Female  Loyal Customer   38  Business travel  Business              954                      2                                  2                       2               2                3             1                       4                 4                 4                 4                2                 4            4             1
+2  Female  Loyal Customer   38  Business travel       Eco              189                      2                                  1                       1               2                2             2                       2                 1                 2                 4                1                 4            2             0
+3  Female  Loyal Customer   32  Personal Travel       Eco              175                      2                                  5                       2               1                2             1                       1                 3                 5                 4                5                 4            1             0
+4    Male  Loyal Customer   33  Business travel  Business             1990                      5                                  5                       5               4                4             4                       4                 4                 1                 5                5                 1            4             1
+[2023-07-09 12:59:23,336] root - INFO - columns in dataframe are: Index(['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class',
+       'Flight Distance', 'Inflight wifi service',
+       'Departure/Arrival time convenient', 'Ease of Online booking',
+       'Food and drink', 'Online boarding', 'Seat comfort',
+       'Inflight entertainment', 'On-board service', 'Leg room service',
+       'Baggage handling', 'Checkin service', 'Inflight service',
+       'Cleanliness', 'satisfaction'],
+      dtype='object')
+[2023-07-09 12:59:23,341] root - INFO - Catogorical columns in dataframe are: ['Gender', 'Customer Type', 'Type of Travel', 'Class']
+[2023-07-09 12:59:23,359] root - INFO - Numerical columns in dataframe are: ['Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient', 'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 'Cleanliness', 'satisfaction']
+[2023-07-09 12:59:23,361] root - INFO - columns in dataframe are: Gender                               object
+Customer Type                        object
+Age                                   int64
+Type of Travel                       object
+Class                                object
+Flight Distance                       int64
+Inflight wifi service                 int64
+Departure/Arrival time convenient     int64
+Ease of Online booking                int64
+Food and drink                        int64
+Online boarding                       int64
+Seat comfort                          int64
+Inflight entertainment                int64
+On-board service                      int64
+Leg room service                      int64
+Baggage handling                      int64
+Checkin service                       int64
+Inflight service                      int64
+Cleanliness                           int64
+satisfaction                          int64
+dtype: object
+[2023-07-09 12:59:23,361] root - INFO - Obtaining feature engineering object.
+[2023-07-09 12:59:23,361] root - INFO - 
+******************** Feature Engneering Started ********************
+
+
+[2023-07-09 12:59:23,361] root - INFO - Obtaining feature engineering object.
+[2023-07-09 12:59:23,361] root - INFO - 
+******************** Feature Engneering Started ********************
+
+
+[2023-07-09 12:59:23,361] root - INFO - Applying feature engineering object on training dataframe and testing dataframe
+[2023-07-09 12:59:23,361] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Training data <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-07-09 12:59:23,361] root - INFO - Feature Enineering - Train Data 
+[2023-07-09 12:59:23,363] root - INFO - numerical_columns: ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient', 'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 'Cleanliness', 'satisfaction']
+[2023-07-09 12:59:23,363] root - INFO - categorical_columns: ['Gender', 'Customer Type', 'Type of Travel', 'Class']
+[2023-07-09 12:59:23,363] root - INFO - columns in dataframe are: Index(['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class',
+       'Flight Distance', 'Inflight wifi service',
+       'Departure/Arrival time convenient', 'Ease of Online booking',
+       'Food and drink', 'Online boarding', 'Seat comfort',
+       'Inflight entertainment', 'On-board service', 'Leg room service',
+       'Baggage handling', 'Checkin service', 'Inflight service',
+       'Cleanliness', 'satisfaction'],
+      dtype='object')
+[2023-07-09 12:59:23,489] root - INFO - Outlier capped in train df
+[2023-07-09 12:59:23,489] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Test data <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-07-09 12:59:23,489] root - INFO - Feature Enineering - Test Data 
+[2023-07-09 12:59:23,491] root - INFO - numerical_columns: ['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient', 'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 'Cleanliness', 'satisfaction']
+[2023-07-09 12:59:23,492] root - INFO - categorical_columns: ['Gender', 'Customer Type', 'Type of Travel', 'Class']
+[2023-07-09 12:59:23,492] root - INFO - columns in dataframe are: Index(['Gender', 'Customer Type', 'Age', 'Type of Travel', 'Class',
+       'Flight Distance', 'Inflight wifi service',
+       'Departure/Arrival time convenient', 'Ease of Online booking',
+       'Food and drink', 'Online boarding', 'Seat comfort',
+       'Inflight entertainment', 'On-board service', 'Leg room service',
+       'Baggage handling', 'Checkin service', 'Inflight service',
+       'Cleanliness', 'satisfaction'],
+      dtype='object')
+[2023-07-09 12:59:23,542] root - INFO - Outlier capped in train df
+[2023-07-09 12:59:24,257] root - INFO - Saving csv to train_data.csv
+[2023-07-09 12:59:24,481] root - INFO - Saving csv to test_data.csv
+[2023-07-09 12:59:24,482] root - INFO - Saving csv to train_data and test_data.csv
+[2023-07-09 12:59:24,482] root - INFO -  Data Transformation Started
+[2023-07-09 12:59:24,482] root - INFO - shape of (103577, 20) and (25910, 20)
+[2023-07-09 12:59:24,498] root - INFO - shape of (103577, 19) and (25910, 19)
+[2023-07-09 12:59:24,498] root - INFO - shape of (103577,) and (25910,)
+[2023-07-09 12:59:24,979] root - INFO - Applying preprocessing object on training and testing datasets.
+[2023-07-09 12:59:24,979] root - INFO - shape of (103577, 21) and (25910, 21)
+[2023-07-09 12:59:24,979] root - INFO - shape of (103577,) and (25910,)
+[2023-07-09 12:59:24,979] root - INFO - transformation completed
+[2023-07-09 12:59:24,989] root - INFO - train_arr, test_arr completed
+[2023-07-09 12:59:24,989] root - INFO - train arr , test arr
+[2023-07-09 12:59:24,991] root - INFO - converting train_arr and test_arr to dataframe
+[2023-07-09 12:59:30,163] root - INFO - transformed_train_path
+[2023-07-09 12:59:30,163] root - INFO - transformed dataset columns : RangeIndex(start=0, stop=22, step=1)
+[2023-07-09 12:59:31,230] root - INFO - Preprocessor file saved
+[2023-07-09 12:59:31,231] root - INFO - Feature eng file saved
+[2023-07-09 12:59:31,232] root - INFO - Data Transformation Completed
+[2023-07-09 12:59:31,237] root - INFO - Spitting our dataset into Dependebt and independent features
+[2023-07-09 13:14:31,104] root - INFO - Best Model Found,Model is:Logistic,Accuracy_Score:0.8695870320339637
+[2023-07-09 13:14:31,263] werkzeug - WARNING -  * Debugger is active!
+[2023-07-09 13:14:31,318] werkzeug - INFO -  * Debugger PIN: 818-406-981
+[2023-07-09 13:14:34,040] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:14:34] "GET / HTTP/1.1" 200 -
+[2023-07-09 13:17:02,519] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:17:02] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 13:17:30,850] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:17:30] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 13:17:48,624] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:17:48] "GET /train HTTP/1.1" 200 -
+[2023-07-09 13:17:52,033] root - ERROR - 'Train' object has no attribute 'main'
+[2023-07-09 13:17:52,035] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:17:52] "POST /train HTTP/1.1" 200 -
+[2023-07-09 13:18:10,073] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:18:10] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 13:18:26,208] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:18:26] "GET /train HTTP/1.1" 200 -
+[2023-07-09 13:18:33,832] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:18:33] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 13:36:30,149] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:36:30] "GET / HTTP/1.1" 200 -
+[2023-07-09 13:38:01,857] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:38:01] "GET / HTTP/1.1" 200 -
+[2023-07-09 13:52:24,758] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:52:24] "GET / HTTP/1.1" 200 -
+[2023-07-09 13:55:21,406] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 13:55:21] "GET / HTTP/1.1" 200 -
+[2023-07-09 14:15:06,480] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:15:06] "GET / HTTP/1.1" 200 -
+[2023-07-09 14:15:16,103] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:15:16] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:18:08,559] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:18:08] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:18:23,439] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:18:23] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:24:21,389] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:24:21] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:26:09,166] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:26:09] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:27:34,962] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:27:34] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:29:01,339] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:29:01] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:31:37,198] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:31:37] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:33:35,628] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:33:35] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:35:11,868] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:35:11] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 14:47:34,295] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:47:34] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:49:59,247] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:49:59] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:50:02,481] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:50:02] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:50:06,991] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:50:06] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:51:37,960] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:51:37] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:51:59,020] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:51:59] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:52:05,551] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:52:05] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:52:33,852] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:52:33] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 14:55:57,403] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:55:57] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 14:56:10,495] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:56:10] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 14:56:16,894] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:56:16] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:57:47,451] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:57:47] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:57:50,843] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:57:50] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:58:13,345] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:58:13] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:58:14,754] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:58:14] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:58:15,349] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:58:15] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:59:07,919] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:59:07] "GET /train HTTP/1.1" 200 -
+[2023-07-09 14:59:27,237] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 14:59:27] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:00:00,528] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:00:00] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:01:17,780] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:01:17] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:02:17,261] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:02:17] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:03:17,457] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:03:17] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:05:11,738] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:05:11] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:06:42,065] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:06:42] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:25:35,738] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:25:35] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 15:25:46,954] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:25:46] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 15:32:41,638] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:32:41] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 15:33:15,468] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:15] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2023-07-09 15:33:16,800] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:16] "[36mGET /predict?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-07-09 15:33:16,801] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:16] "[36mGET /predict?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-07-09 15:33:17,590] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:17] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-09 15:33:17,835] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:17] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-09 15:33:27,372] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:33:27] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 15:35:56,491] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:35:56] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 15:39:14,713] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:39:14] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 15:39:24,131] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:39:24] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 15:39:31,114] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:39:31] "GET /train HTTP/1.1" 200 -
+[2023-07-09 15:39:32,551] root - ERROR - 'Train' object has no attribute 'main'
+[2023-07-09 15:39:32,552] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 15:39:32] "POST /train HTTP/1.1" 200 -
+[2023-07-09 17:35:24,447] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:24] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:35:46,614] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:46] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2023-07-09 17:35:46,653] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:46] "[36mGET /predict?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-07-09 17:35:46,963] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:46] "[36mGET /predict?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-07-09 17:35:47,222] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:47] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-09 17:35:47,396] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:47] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-07-09 17:35:57,130] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:35:57] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 17:36:00,899] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:36:00] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:36:03,197] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:36:03] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 17:41:52,126] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:41:52] "GET /train HTTP/1.1" 200 -
+[2023-07-09 17:47:51,353] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:47:51] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:48:16,969] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:48:16] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 17:48:21,621] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:48:21] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:48:23,718] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:48:23] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 17:56:16,907] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:56:16] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:56:48,985] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:56:48] "POST /predict HTTP/1.1" 200 -
+[2023-07-09 17:56:52,174] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:56:52] "GET /predict HTTP/1.1" 200 -
+[2023-07-09 17:56:54,599] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:56:54] "GET /batch HTTP/1.1" 200 -
+[2023-07-09 17:56:58,539] werkzeug - INFO - 127.0.0.1 - - [09/Jul/2023 17:56:58] "GET /train HTTP/1.1" 200 -

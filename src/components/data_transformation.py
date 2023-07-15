@@ -10,10 +10,82 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from src.Utils.utils import save_object
 from sklearn.base import BaseEstimator, TransformerMixin
+from src.config.configuration import PREPROCESSING_OBJ_PATH,TRANSFORMED_TRAIN_FILE_PATH,TRANSFORMED_TEST_FILE_PATH,FEATURE_ENG_OBJ_PATH
+
+class Feature_Engineering(BaseEstimator,TransformerMixin):
+    def __init__(self):   #class to apply Feature Emggneering
+         logging.info(f"\n{'*'*20} Feature Engneering Started {'*'*20}\n\n")
+
+
+    def _remove_outliers_IQR(self,col,df):
+        try:
+            Q1=df[col].quantile(0.25)
+            Q3=df[col].quantile(0.75)
+            iqr=Q3-Q1
+            upper_limit = Q3+1.5 *iqr
+            lower_limit =Q1 -1.5*iqr
+            df.loc[(df[col]>upper_limit),col]=upper_limit
+            df.loc[(df[col]<lower_limit),col]=lower_limit
+            return df             
+
+        except Exception as e:
+            logging.info("outlier code removal by IQR Method")
+            raise CustomException(e,sys)
+        
+    def transform_data(self,df):
+        try:
+            num_col = [feature for feature in df.columns if df[feature].dtype != '0']
+            
+            logging.info(f"numerical_columns: {num_col}")
+
+
+            cat_col = [feature for feature in df.columns if df[feature].dtype == 'O']
+            logging.info(f"categorical_columns: {cat_col}")
+
+            #df.drop(columns=['Unnamed: 0','Gate location','Departure Delay in Minutes', 'Arrival Delay in Minutes'], inplace=True, axis=1)
+
+            logging.info(f"columns in dataframe are: {df.columns}")
+
+            numerical_columns = [ 'Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient',
+                                   'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 
+                                   'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 
+                                   'Checkin service', 'Inflight service', 'Cleanliness' ]
+
+
+# outlier
+
+            for col in numerical_columns:
+                self._remove_outliers_IQR(col=col, df= df)
+            
+            logging.info(f"Outlier capped in train df")
+            return df 
+            
+        except Exception as e:
+            raise CustomException(e,sys)
+        
+    
+    def fit(self,X,y=None):
+        return self
+    
+    
+    def transform(self,X:pd.DataFrame,y=None):
+        try:    
+            transformed_df=self.transform_data(X)
+                
+            return transformed_df
+        except Exception as e:
+            raise CustomException(e,sys) from e
+        
+        
+
 
 @dataclass
 class DataTransfromartionConfigs:
-    preprocess_obj_file_patrh = os.path.join("artifacts/data_transformation", "preprcessor.pkl")
+   # preprocess_obj_file_patrh = os.path.join("artifacts/data_transformation", "preprcessor.pkl")
+    preprocessor_obj_file_path=PREPROCESSING_OBJ_PATH
+    transformed_train_path=TRANSFORMED_TRAIN_FILE_PATH
+    transformed_test_path=TRANSFORMED_TEST_FILE_PATH
+    feature_eng_obj_path=FEATURE_ENG_OBJ_PATH
 
 
 class DataTransformation:
@@ -28,24 +100,7 @@ class DataTransformation:
             logging.info("Error occurred while deleting columns")
             raise CustomException(e, sys)
     
-    def remove_outliers_IQR(self, col, df):
-        try:
-            Q1 = df[col].quantile(0.25)
-            Q3 = df[col].quantile(0.75)
-
-            iqr = Q3 - Q1
-
-            upper_limit = Q3 + 1.5 * iqr
-            lowwer_limit = Q1 - 1.5 * iqr
-
-            df.loc[(df[col]>upper_limit), col] = upper_limit
-            df.loc[(df[col]<lowwer_limit), col] = lowwer_limit
-
-            return df
-
-        except Exception as e:
-            logging.info("Outliers handling code")
-            raise CustomException(e, sys)
+   
         
     
 
@@ -117,6 +172,13 @@ class DataTransformation:
         except Exception as e:
             raise CustomException(e, sys)
         
+    def get_feature_engineering_object(self):
+        try:
+            
+            feature_engineering = Pipeline(steps = [("fe",Feature_Engineering())])
+            return feature_engineering
+        except Exception as e:
+            raise CustomException(e,sys) from e
     
         
     def inititate_data_transformation(self, train_path, test_path):
@@ -182,47 +244,101 @@ class DataTransformation:
                                    'Ease of Online booking', 'Food and drink', 'Online boarding', 'Seat comfort', 
                                    'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 
                                    'Checkin service', 'Inflight service', 'Cleanliness' ]
+            
+            logging.info(f"Obtaining feature engineering object.")
+            fe_obj = self.get_feature_engineering_object()
         
 
-            for col in numerical_features:
-                self.remove_outliers_IQR(col = col, df = train_data)
-                self.remove_outliers_IQR(col = col, df = test_data)
-            logging.info("Outliers capped on our train data")
+            
+            logging.info(f"Obtaining feature engineering object.")
+            fe_obj = self.get_feature_engineering_object()
+            logging.info(f"Applying feature engineering object on training dataframe and testing dataframe")
+            logging.info(">>>" * 20 + " Training data " + "<<<" * 20)
+            logging.info(f"Feature Enineering - Train Data ")
+            train_data = fe_obj.fit_transform(train_data)
+            logging.info(">>>" * 20 + " Test data " + "<<<" * 20)
+            logging.info(f"Feature Enineering - Test Data ")
+            test_data = fe_obj.transform(test_data)
 
-              
+            if train_data is not None:
+                train_data.to_csv("train_data.csv")
+                logging.info(f"Saving csv to train_data.csv")
+
+            if test_data is not None:
+                test_data.to_csv("test_data.csv")
+                logging.info(f"Saving csv to test_data.csv")
+
+
+           #train_data.to_csv("train_data.csv")
+            #test_data.to_csv("test_data.csv")
+            logging.info(f"Saving csv to train_data and test_data.csv")
+
+            # Preprocessing pipeline                         
             
             preprocess_obj = self.get_data_transformation_obj()
 
-            traget_columns =['satisfaction']
-            drop_columns =traget_columns
+            target_column_name ='satisfaction' 
+            logging.info(f"shape of {train_data.shape} and {test_data.shape}")
+            
+
+            X_train = train_data.drop(columns=target_column_name,axis=1)
+            y_train=train_data[target_column_name]
+
+            X_test=test_data.drop(columns=target_column_name,axis=1)
+            y_test=test_data[target_column_name]
+
+            logging.info(f"shape of {X_train.shape} and {X_test.shape}")
+            logging.info(f"shape of {y_train.shape} and {y_test.shape}")
+
+            X_train=preprocess_obj.fit_transform(X_train)            
+            X_test=preprocess_obj.transform(X_test)
+            logging.info("Applying preprocessing object on training and testing datasets.")
+            logging.info(f"shape of {X_train.shape} and {X_test.shape}")
+            logging.info(f"shape of {y_train.shape} and {y_test.shape}")
+            
+
+            logging.info("transformation completed")
+
+            train_arr = np.c_[X_train, np.array(y_train)]
+            test_arr = np.c_[X_test, np.array(y_test)]
+
+            logging.info("train_arr, test_arr completed")
 
             
 
-            logging.info("Splitting train data into dependent and independent features")
-            input_feature_train_data = train_data.drop(drop_columns, axis = 1)
-            traget_feature_train_data = train_data[traget_columns]
-
-            logging.info("Splitting test data into dependent and independent features")
-            input_feature_test_data = test_data.drop(drop_columns, axis = 1)
-            traget_feature_test_data = test_data[traget_columns]
-
-            # Apply transfpormation on our train data and test data
-            input_train_arr = preprocess_obj.fit_transform(input_feature_train_data)
-            input_test_arr = preprocess_obj.transform(input_feature_test_data)
-
-            # Apply preprocessor object on our train data and test data
-            train_array = np.c_[input_train_arr, np.array(traget_feature_train_data)]
-            test_array = np.c_[input_test_arr, np.array(traget_feature_test_data)]
+            logging.info("train arr , test arr")
 
 
-            save_object(file_path=self.data_transformation_config.preprocess_obj_file_patrh,
-                        obj=preprocess_obj)
+            train_data= pd.DataFrame(train_arr)
+            test_data = pd.DataFrame(test_arr)
+
+            logging.info("converting train_arr and test_arr to dataframe")
+
+
+            os.makedirs(os.path.dirname(self.data_transformation_config.transformed_train_path),exist_ok=True)
+            train_data.to_csv(self.data_transformation_config.transformed_train_path,index=False,header=True)
+
+            logging.info("transformed_train_path")
+            logging.info(f"transformed dataset columns : {train_data.columns}")
+
+            os.makedirs(os.path.dirname(self.data_transformation_config.transformed_test_path),exist_ok=True)
+            test_data.to_csv(self.data_transformation_config.transformed_test_path,index=False,header=True)
+
+            save_object(
+                file_path=self.data_transformation_config.preprocessor_obj_file_path,
+                obj=preprocess_obj)
+            
+            logging.info("Preprocessor file saved")
+
+
+            save_object(
+                file_path=self.data_transformation_config.feature_eng_obj_path,
+                obj=fe_obj)
+            logging.info("Feature eng file saved")
             logging.info("Data Transformation Completed")
-            return (train_array,
-                    test_array,
-                    self.data_transformation_config.preprocess_obj_file_patrh)
-
-
+            return(train_arr,
+                   test_arr,
+                   self.data_transformation_config.preprocessor_obj_file_path)
 
         except Exception as e:
             raise CustomException(e, sys)

@@ -4,7 +4,7 @@ import pandas as pd
 from src.logger import logging
 from src.exception import CustomException
 from dataclasses import dataclass
-from src.Utils.utils import load_object
+from src.Utils.utils import load_object,load_model
 
 class PredictionPipeline:
     def __init__(self):
@@ -15,7 +15,7 @@ class PredictionPipeline:
         model_path = os.path.join("artifacts/model_trainer", "model.pkl")
 
         processor = load_object(preprocessro_path)
-        model = load_object(model_path)
+        model = load_model(model_path)
 
         scaled = processor.transform(features)
         pred = model.predict(scaled)

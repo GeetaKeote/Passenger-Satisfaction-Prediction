@@ -1,9 +1,0 @@
-[2023-07-05 07:29:23,643] root - INFO - converting data into Dataframe
-[2023-07-05 07:29:23,652] werkzeug - WARNING -  * Debugger is active!
-[2023-07-05 07:29:23,655] werkzeug - INFO -  * Debugger PIN: 774-533-357
-[2023-07-05 07:29:32,236] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 07:29:32] "[35m[1mPOST / HTTP/1.1[0m" 500 -
-[2023-07-05 07:29:32,468] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 07:29:32] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
-[2023-07-05 07:29:32,596] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 07:29:32] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
-[2023-07-05 07:29:32,921] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 07:29:32] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-[2023-07-05 07:29:33,187] werkzeug - INFO - 127.0.0.1 - - [05/Jul/2023 07:29:33] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-[2023-07-05 07:36:53,291] werkzeug - INFO -  * Detected change in 'a:\\projects machine learning\\internship sa\\airline\\passenger-satisfaction-prediction\\src\\components\\data_transformation.py', reloading
