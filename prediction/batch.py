@@ -108,10 +108,11 @@ class batch_prediction:
             file_path = os.path.join(FEATURE_ENG_PATH, 'preprocessor.csv')
 
             logging.info(f"Model Data Type : {type(model)}")
+            print(f"Model Data Type : {type(model)}")
             
             predictions = model.predict(transformed_data)
             logging.info(f"Predictions done :{predictions}")
-            
+            print(f"Predictions done : {predictions}")
             
 
             # Create a DataFrame from the predictions array
@@ -136,7 +137,7 @@ class batch_prediction:
             csv_path = os.path.join(BATCH_PREDICTION_PATH,'predictions.csv')
             df_predictions.to_csv(csv_path, index=False)
             logging.info(f"Batch predictions saved to '{csv_path}'.")
-
+            print(f"Batch predictions saved to '{csv_path}'.")
             
             
 

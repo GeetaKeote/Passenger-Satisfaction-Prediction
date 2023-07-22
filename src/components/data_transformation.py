@@ -189,8 +189,8 @@ class DataTransformation:
 
             
 
-            print(train_data.columns)
-            print(test_data.columns)
+            # print(train_data.columns)
+            # print(test_data.columns)
 
             train_data.columns = train_data.columns.str.strip()
             test_data.columns = test_data.columns.str.strip()
