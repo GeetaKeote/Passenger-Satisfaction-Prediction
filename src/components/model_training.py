@@ -37,11 +37,11 @@ class ModelTrainer:
             )
             model={
                 "Logistic":LogisticRegression(),
-                # "DecisionTree":DecisionTreeClassifier(),
-                # "Gradient Booasting":XGBClassifier(),
-                # 'XGB Classifier':XGBClassifier(),
-                # 'KNN neighbour':KNeighborsClassifier(),
-                # "Random Forest":RandomForestClassifier()
+                 "DecisionTree":DecisionTreeClassifier(),
+                 "Gradient Booasting":XGBClassifier(),
+                 'XGB Classifier':XGBClassifier(),
+                 'KNN neighbour':KNeighborsClassifier(),
+                 "Random Forest":RandomForestClassifier()
             }            
             params={
                 "Logistic":{
@@ -51,41 +51,41 @@ class ModelTrainer:
                     'solver': ['liblinear', 'saga'],
                     'max_iter': [100, 500, 2000]
                 },
-                # "DecisionTree":{
-                #     "class_weight":["balanced"],
-                #     "criterion":['gini',"entropy","log_loss"],
-                #     "splitter":['best','random'],
-                #     "max_depth":[3,4,5,6],
-                #     "min_samples_split":[2,3,4,5],
-                #     "min_samples_leaf":[1,2,3],
-                #     "max_features":["auto","sqrt","log2"]
-                #     #"max_features":["sqrt"]
-                #     },
+                 "DecisionTree":{
+                     "class_weight":["balanced"],
+                     "criterion":['gini',"entropy","log_loss"],
+                     "splitter":['best','random'],
+                     "max_depth":[3,4,5,6],
+                     "min_samples_split":[2,3,4,5],
+                     "min_samples_leaf":[1,2,3],
+                     "max_features":["auto","sqrt","log2"],
+                     "max_features":["sqrt"]
+                     },
                     
-                # "Gradient Booasting":{
-                #     "learning_rate":[ 0.1, 0.05],
-                #     "n_estimators":[50,100],
-                #     "max_depth":[10, 8 ]
-                # },
-                # 'XGB Classifier':{
-                #     'max_depth': [ 5, 7],
-                #     'learning_rate': [0.1, 0.01],
-                #     'n_estimators': [100, 300],
-                #     'colsample_bytree': [0.8], 
-                #     'n_jobs':[-1],
-                #     'reg_alpha': [ 0.1, 0.5],
-                #     'reg_lambda': [ 1, 10]
-                # },
-                # "KNN neighbour":{
-                #     'n_neighbors': [2, 5, 7],
-                #         'weights': ['uniform', 'distance'],
-                # },
-                # "Random Forest":{
-                #     'n_estimators': [500,  30,50,100],
-                #     'max_depth': [10, 8, 5,None],
-                #     'min_samples_split': [2, 5, 8],
-                #     'criterion':["gini"]
-                # }
+                 "Gradient Booasting":{
+                     "learning_rate":[ 0.1, 0.05],
+                     "n_estimators":[50,100],
+                     "max_depth":[10, 8 ]
+                 },
+                 'XGB Classifier':{
+                     'max_depth': [ 5, 7],
+                     'learning_rate': [0.1, 0.01],
+                     'n_estimators': [100, 300],
+                     'colsample_bytree': [0.8], 
+                     'n_jobs':[-1],
+                     'reg_alpha': [ 0.1, 0.5],
+                     'reg_lambda': [ 1, 10]
+                 },
+                 "KNN neighbour":{
+                     'n_neighbors': [2, 5, 7],
+                         'weights': ['uniform', 'distance'],
+                 },
+                 "Random Forest":{
+                     'n_estimators': [500,  30,50,100],
+                     'max_depth': [10, 8, 5,None],
+                     'min_samples_split': [2, 5, 8],
+                     'criterion':["gini"]
+                 }
             }
 
             model_report:dict=evaluate_model(X_train =X_train ,X_test=X_test,y_train=y_train,y_test=y_test,
